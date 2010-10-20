@@ -9,7 +9,7 @@ class GoogleDirections
     @location_1 = location_1
     @location_2 = location_2
     options = "origin=#{transcribe(@location_1)}&destination=#{transcribe(@location_2)}
-    &mode=#{transcribe(@mode)}"
+    &mode=#{transcribe(mode)}"
     @xml_call = @base_url + options
     @status = find_status
   end
