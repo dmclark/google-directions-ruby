@@ -4,11 +4,12 @@ require 'google_directions'
 
 class GoogleDirections
   
-  def initialize(location_1, location_2)
+  def initialize(location_1, location_2, mode="walking")
     @base_url = "http://maps.google.com/maps/api/directions/xml?key=#{GOOGLE_MAPS_API_KEY}&sensor=false&"
     @location_1 = location_1
     @location_2 = location_2
-    options = "origin=#{transcribe(@location_1)}&destination=#{transcribe(@location_2)}"
+    options = "origin=#{transcribe(@location_1)}&destination=#{transcribe(@location_2)}
+    &mode=#{transcribe(@mode)}"
     @xml_call = @base_url + options
     @status = find_status
   end
